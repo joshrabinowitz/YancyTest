@@ -10,6 +10,7 @@ use Mojo::MySQL; # Supported backends: Pg, MySQL, SQLite, DBIx::Class
 
 my ($mojo_mysql_connectstring) = read_lines( "/home/$ENV{USER}/.mojo-mysql-connectstring.txt" );
 chomp($mojo_mysql_connectstring);
+#print "$0: mojo mysql connectstring is: $mojo_mysql_connectstring\n";
 
 plugin Yancy => {
     # our MySQL connector
@@ -18,11 +19,12 @@ plugin Yancy => {
     read_schema => 1,
 };
 
-# this gives "Useless use of anonymous hash ({}) in void context at YancyTest/yancytest.pl line 21." 
-get( '/*path' ) => {
-    path=>"index", # default    
-    controller => "yancy",
-    action=> 'get', 
-    template => 'index'
-};
+if (0) {
+    my $schema = app->yancy->schema;
+    for my $key ( keys %$schema ) {
+        my $props = $schema->{ $key }{ properties };
+        $schema->{ $key }{ 'x-list-columns' } = [ grep { my $f = $props->{$_}{format}; !defined $f || $f ne 'textarea' } keys %$props ];
+    } 
+}
+
 app->start;
