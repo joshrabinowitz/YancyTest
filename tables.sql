@@ -1,6 +1,4 @@
 -- MySQL dump 10.14  Distrib 5.5.65-MariaDB, for Linux (x86_64)
---
--- Host: db1.xab.com    Database: jstock
 -- ------------------------------------------------------
 -- Server version	5.5.65-MariaDB
 
