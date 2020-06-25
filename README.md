@@ -14,3 +14,6 @@ which is:
         $schema->{ $key }{ 'x-list-columns' } = [ grep { $props->{$_}{format} ne 'textarea' } keys %$props ];
     } 
 
+
+See also https://github.com/preaction/Yancy/issues/46, "Better default x-list-columns"
+
