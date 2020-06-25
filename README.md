@@ -16,7 +16,7 @@ OR just set up ~/.yancytest-connectstring.txt to connect to your existing databa
 
 This will run a server at port 5000 as per plackup docs.
 
-We want to implement preaction's suggestion at 
+This poroject implements preaction's suggestion at 
     https://gist.github.com/preaction/edcd513769cb61a1e08637d881626f1b
 which is:
 
