@@ -1,15 +1,3 @@
--- MySQL dump 10.14  Distrib 5.5.65-MariaDB, for Linux (x86_64)
---
--- Host: db1.xab.com    Database: jstock
--- ------------------------------------------------------
--- Server version	5.5.65-MariaDB
-
-
---
--- Table structure for table `action_queue`
---
-
-DROP TABLE IF EXISTS `action_queue`;
 CREATE TABLE `action_queue` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `symbol` varchar(150) NOT NULL,
@@ -21,11 +9,6 @@ CREATE TABLE `action_queue` (
   UNIQUE KEY `symbol__action__uniqueindex` (`symbol`,`action`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47644759 DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `admin_stats`
---
-
-DROP TABLE IF EXISTS `admin_stats`;
 CREATE TABLE `admin_stats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `data_date` date NOT NULL,
@@ -35,14 +18,6 @@ CREATE TABLE `admin_stats` (
   UNIQUE KEY `data_date__type__unique_index` (`data_date`,`type`)
 ) ENGINE=InnoDB AUTO_INCREMENT=47070404 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Table structure for table `ai_configs`
---
---
--- Table structure for table `articles`
---
-
-DROP TABLE IF EXISTS `articles`;
 CREATE TABLE `articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -64,11 +39,6 @@ CREATE TABLE `articles` (
   CONSTRAINT `blog_posts__user_id__fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=80 DEFAULT CHARSET=utf8mb4;
 
---
--- Table structure for table `articles_archive`
---
-
-DROP TABLE IF EXISTS `articles_archive`;
 CREATE TABLE `articles_archive` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `article_id` int(11) NOT NULL,
@@ -92,12 +62,6 @@ CREATE TABLE `articles_archive` (
   CONSTRAINT `articles_archive__image_file_id__fk` FOREIGN KEY (`image_file_id`) REFERENCES `files` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=138 DEFAULT CHARSET=utf8mb4;
 
-
---
--- Table structure for table `datacache`
---
-
-DROP TABLE IF EXISTS `datacache`;
 CREATE TABLE `datacache` (
   `update_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `expire_time` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -106,12 +70,6 @@ CREATE TABLE `datacache` (
   UNIQUE KEY `name__index` (`name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ascii;
 
-
---
--- Table structure for table `files`
---
-
-DROP TABLE IF EXISTS `files`;
 CREATE TABLE `files` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `filename` varchar(150) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -125,11 +83,6 @@ CREATE TABLE `files` (
   CONSTRAINT `files__user_id__fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Table structure for table `files_archive`
---
-
-DROP TABLE IF EXISTS `files_archive`;
 CREATE TABLE `files_archive` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `file_id` int(11) NOT NULL,
@@ -145,23 +98,12 @@ CREATE TABLE `files_archive` (
   CONSTRAINT `files_archive__user_id__fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-
---
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
 CREATE TABLE `roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `role` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Table structure for table `user_roles`
---
-
-DROP TABLE IF EXISTS `user_roles`;
 CREATE TABLE `user_roles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
@@ -173,12 +115,6 @@ CREATE TABLE `user_roles` (
   CONSTRAINT `user_roles__user_id__fk` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(128) COLLATE utf8_unicode_ci NOT NULL,
@@ -187,5 +123,3 @@ CREATE TABLE `users` (
   UNIQUE KEY `email__unique_index` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10010 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
-
--- Dump completed on 2020-06-24 22:41:48
