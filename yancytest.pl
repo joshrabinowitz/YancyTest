@@ -9,14 +9,14 @@ use Mojolicious::Lite;
 use Mojo::mysql; # Supported backends: Pg, Mysql, SQLite, DBIx::Class
                 # note: don't use ancient "Mojo::MySQL"
 
-my ($mojo_mysql_connectstring) = read_lines( "/home/$ENV{USER}/.mojo-mysql-connectstring.txt" );
-chomp($mojo_mysql_connectstring);
-#print "$0: mojo mysql connectstring is: $mojo_mysql_connectstring\n";
+my ($connectstring) = read_lines( "/home/$ENV{USER}/.yancytest-connectstring.txt" );
+chomp($connectstring);
+#print "$0: mojo mysql connectstring is: $connectstring\n";
 
 plugin Yancy => {
     # our MySQL connector
     # example connect string looks like: 'mysql://username:password@hostname/test;mysql_ssl=1'
-    backend => { mysql => Mojo::mysql->new( $mojo_mysql_connectstring ) },
+    backend => { mysql => Mojo::mysql->new( $connectstring ) },
     read_schema => 1,
 };
 
