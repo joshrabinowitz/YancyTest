@@ -1,8 +1,20 @@
-test this with 
+YancyTest README.md
+
+This is a test of Yancy
+
+You can test this with 
+
+    mysql -e 'create database yancytest'
+    mysql yancytest < tables.sql
+    cat "$your_connectstring_here" > $/.yancytest-connectstring.txt
+        # example connect string looks like: 'mysql://username:password@hostname/test;mysql_ssl=1'
+    plackup yancytest.pl
+
+OR just set up ~/.yancytest-connectstring.txt to connect to your existing database and run:
 
     plackup yancytest.pl
 
-which will run a server at port 5000 as per plackup docs
+This will run a server at port 5000 as per plackup docs.
 
 We want to implement preaction's suggestion at 
     https://gist.github.com/preaction/edcd513769cb61a1e08637d881626f1b
