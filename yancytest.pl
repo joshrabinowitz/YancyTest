@@ -24,7 +24,10 @@ if (1) {
     my $schema = app->yancy->schema;
     for my $key ( keys %$schema ) {
         my $props = $schema->{ $key }{ properties };
-        $schema->{ $key }{ 'x-list-columns' } = [ grep { my $f = $props->{$_}{format}; !defined $f || $f ne 'textarea' } keys %$props ];
+        $schema->{ $key }{ 'x-list-columns' } = [ 
+            grep { my $f = $props->{$_}{format}; !defined $f || $f ne 'textarea' } 
+            sort { $props->{$a}{"x-order"} <=> $props->{$b}{"x-order"} } keys %$props 
+        ];
     } 
 }
 
