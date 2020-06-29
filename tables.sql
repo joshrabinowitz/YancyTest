@@ -110,6 +110,6 @@ CREATE TABLE `user_roles` (
 
 -- Dump completed on 2020-06-28 20:59:47
 
-insert into users set id=1, email="email@example.com", password='p@ssw9rd';
-insert into roles set id=2, role="plebian";
-insert into user_roles set id=3, user_id=1, role_id=2;
+insert into users set id=1, email="email@example.com", password='{SSHA}d003336a3a51caacb4f2a2a5d6a18';
+insert into roles set id=1, role="plebian";
+insert into user_roles set id=1, user_id=1, role_id=1;
