@@ -72,7 +72,7 @@ __END__
       properties => {
         id => { "readOnly" => 'fix', "type" => "integer", "x-order" => 1 },
         role_id => { "type" => "integer", "x-foreign-key" => "roles", "x-order" => 3 },
-        user_id => { "type" => "integer", "x-order" => 2 },
+        user_id => { "type" => "integer", "x-foreign-key" => "users", "x-display-field" => "email", "x-order" => 2 },
       },
       required => ["user_id", "role_id"],
       type => "object",
