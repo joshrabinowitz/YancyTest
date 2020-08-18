@@ -6,7 +6,7 @@ You can test this with
 
     mysql -e 'create database yancytest'
     mysql yancytest < tables.sql
-    cat "$your_connectstring_here" > $/.yancytest-connectstring.txt
+    cat "$your_connectstring_here" > ~/.yancytest-connectstring.txt
         # example connect string looks like: 'mysql://username:password@hostname/test;mysql_ssl=1'
     plackup yancytest.pl
 
